@@ -12,20 +12,24 @@
 	<dict>
 		<key>1A8D10655905962D4240802F14EC8A3D89E21B7F</key>
 		<string>https://github.com/ulyssaelaine/AgeOfLaika.git</string>
+		<key>E330B5A7CBCF0FDEBEE0717F4EF0A661DAB62330</key>
+		<string>https://github.com/ulyssaelaine/TaskIt.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TaskIt/TaskIt.xcodeproj</string>
+	<string>TaskIt.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1A8D10655905962D4240802F14EC8A3D89E21B7F</key>
 		<string>../../..</string>
+		<key>E330B5A7CBCF0FDEBEE0717F4EF0A661DAB62330</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/ulyssaelaine/AgeOfLaika.git</string>
+	<string>https://github.com/ulyssaelaine/TaskIt.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1A8D10655905962D4240802F14EC8A3D89E21B7F</string>
+	<string>E330B5A7CBCF0FDEBEE0717F4EF0A661DAB62330</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -34,7 +38,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>1A8D10655905962D4240802F14EC8A3D89E21B7F</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Swift%20Training</string>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E330B5A7CBCF0FDEBEE0717F4EF0A661DAB62330</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TaskIt</string>
 		</dict>
 	</array>
 </dict>

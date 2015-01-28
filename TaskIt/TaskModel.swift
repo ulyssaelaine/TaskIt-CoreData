@@ -7,10 +7,14 @@
 //
 
 import Foundation
+import CoreData
 
-struct TaskModel {
-    var task: String
-    var subTask: String
-    var date: NSDate
-    var completed: Bool
+@objc(TaskModel)
+class TaskModel: NSManagedObject {
+
+    @NSManaged var task: String
+    @NSManaged var completed: NSNumber
+    @NSManaged var date: NSDate
+    @NSManaged var subtask: String
+
 }
