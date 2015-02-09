@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+protocol AddTaskViewControllerDelegate {
+    func addTask(message: String)
+    func addTaskCanceled(message: String)
+}
+
 class AddTaskViewController: UIViewController {
 
     var mainVC: ViewController!
@@ -17,8 +22,12 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var subTaskTextField: UITextField!
     @IBOutlet weak var dueDatePicker: UIDatePicker!
     
+    var delegate:AddTaskViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
         // Do any additional setup after loading the view.
     }
@@ -30,6 +39,8 @@ class AddTaskViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        delegate?.addTaskCanceled("Task was not added!")
+        
     }
     
     @IBAction func addTaskButtonTapped(sender: UIButton) {
@@ -39,10 +50,21 @@ class AddTaskViewController: UIViewController {
         let managedObjectContext = appDelegate.managedObjectContext
         let entityDescription = NSEntityDescription.entityForName("TaskModel", inManagedObjectContext: managedObjectContext!)
         let task = TaskModel(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
-        task.task = taskTextField.text
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(kShouldCapitalizeTaskKey) == true {
+            task.task = taskTextField.text.capitalizedString
+        } else {
+            task.task = taskTextField.text
+        }
+        
         task.subtask = subTaskTextField.text
         task.date = dueDatePicker.date
-        task.completed = false
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(kShouldCompleteNewTodoKey) == true {
+            task.completed = true
+        } else {
+            task.completed = false
+        }
         
         appDelegate.saveContext()
         
@@ -55,7 +77,7 @@ class AddTaskViewController: UIViewController {
             println(res)
         }
         
-        
         self.dismissViewControllerAnimated(true, completion: nil)
+        delegate?.addTask("Task Added")
     }
 }

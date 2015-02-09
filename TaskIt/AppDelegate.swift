@@ -9,14 +9,24 @@
 import UIKit
 import CoreData
 
+let kShouldCapitalizeTaskKey = "shouldCapitalizeTask"
+let kShouldCompleteNewTodoKey = "completeNewTodo"
+let kLoadOnceKey = "loadOnce"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        if NSUserDefaults.standardUserDefaults().boolForKey(kLoadOnceKey) == false {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: kLoadOnceKey)
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: kShouldCapitalizeTaskKey)
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: kShouldCompleteNewTodoKey)
+        }
+        
         return true
     }
 
